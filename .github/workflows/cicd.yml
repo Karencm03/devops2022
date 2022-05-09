@@ -6,8 +6,6 @@ name: CI del Backend
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -24,3 +22,14 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      
+    - name: Subir archivo jar
+      uses: actions/upload-artifact@v1
+      with:
+        name: Backend DevOps 2022
+        path: target/ejemplo_backend-0.0.1.jar
+        
+
+
+
+
